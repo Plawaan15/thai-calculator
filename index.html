@@ -11,11 +11,11 @@
     color: #f1f5f9; 
     display: flex; 
     justify-content: center; 
-    padding: 40px 20px; 
+    padding: 40px 15px; 
   }
   .card { 
     background: #1e293b; 
-    padding: 30px; 
+    padding: 30px 15px; 
     border-radius: 16px; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
     max-width: 380px; 
@@ -28,6 +28,7 @@
     font-weight: 600; 
     font-size: 16px; 
     color: #94a3b8;
+    padding: 0 5px; 
   }
   input { 
     width: 100%; 
@@ -79,8 +80,8 @@
   
   .device-block {
     border-left: 2px solid #334155;
-    padding-left: 15px;
-    margin: 15px 0 15px 5px;
+    padding-left: 15px; 
+    margin: 15px 0 15px 0; 
   }
   .device-title {
     font-size: 16px;
@@ -92,7 +93,7 @@
   .device-block-extra {
     border-left: 2px solid #ef4444;
     padding-left: 15px;
-    margin: 15px 0 15px 5px;
+    margin: 15px 0 15px 0;
   }
   .device-title-extra {
     font-size: 16px;
@@ -155,7 +156,7 @@
   <hr class="divider">
 
   <label for="govInput">ระบุจำนวนเงินที่รัฐช่วย (บาท):</label>
-  <input type="number" id="govInput" oninput="calculatePower()" placeholder="เช่น 200">
+  <input type="number" id="govInput" oninput="calculatePower()">
 
   <div class="result-box">
     <div class="row">
@@ -209,7 +210,7 @@
         while (remainingGov > 0.001 && deviceCount <= availableDevices) {
           let govAmount = Math.min(200, remainingGov);
           let userAmount = (govAmount / 0.60) * 0.40;
-          let deviceTotalAmount = govAmount + userAmount; // ยอดสแกนรวมของเครื่องนี้
+          let deviceTotalAmount = govAmount + userAmount;
           
           totalDeviceUserPay += userAmount;
           
@@ -221,7 +222,7 @@
                 <span class="val-gov-sub">${govAmount.toFixed(2)}\u00A0฿</span>
               </div>
               <div class="row small-row">
-                <span>- เติมเงิน (40%):</span>
+                <span>- คุณจ่าย (40%):</span>
                 <span class="val-you-sub">${userAmount.toFixed(2)}\u00A0฿</span>
               </div>
               <div class="row small-row" style="margin-top: 4px; padding-top: 4px; border-top: 1px dashed #334155;">
@@ -240,7 +241,7 @@
             <div class="device-block-extra">
               <div class="device-title-extra">💸 ส่วนต่างที่เกินโควตา</div>
               <div class="row small-row">
-                <span>- จ่ายเต็ม:</span>
+                <span>- คุณจ่ายเต็ม:</span>
                 <span class="val-you-sub">${unsupportedPrice.toFixed(2)}\u00A0฿</span>
               </div>
             </div>
